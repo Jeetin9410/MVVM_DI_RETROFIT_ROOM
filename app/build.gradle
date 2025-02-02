@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.hilt.android.gradle.plugin)
+    //alias(libs.plugins.hilt.android.gradle.plugin)
     id("org.jetbrains.kotlin.kapt")
 }
 
@@ -54,11 +54,11 @@ dependencies {
     kapt(libs.dagger.compiler)
 
     // Hilt
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
+    // implementation(libs.hilt.android)
+    // kapt(libs.hilt.compiler)
 
     // Koin
-    implementation(libs.koin.android)
+    // implementation(libs.koin.android)
 
     // Retrofit & OkHttp
     implementation(libs.retrofit)
