@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.hilt.android.gradle.plugin)
+    id("org.jetbrains.kotlin.kapt")
 }
 
 android {
@@ -47,9 +49,43 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview) // Compose Tooling
     implementation(libs.androidx.activity.compose) // Compose Activity Integration
 
+    // Dagger2
+    implementation(libs.dagger)
+    kapt(libs.dagger.compiler)
+
+    // Hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+
+    // Koin
+    implementation(libs.koin.android)
+
+    // Retrofit & OkHttp
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.logging)
+
+    // Room Database
+    implementation(libs.room.runtime)
+    kapt(libs.room.compiler)
+    implementation(libs.room.ktx)
+
+    // RecyclerView
+    implementation(libs.recyclerview)
+
+    // ViewModel & LiveData (Lifecycle)
+    implementation(libs.lifecycle.viewmodel)
+    implementation(libs.lifecycle.livedata)
+
+    // Kotlin Coroutines & Flows
+    implementation(libs.coroutines.core)
+    implementation(libs.coroutines.android)
+
+
     testImplementation libs.junit
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.androidx.espresso.core
-    androidTestImplementation(libs.androidx.ui.test.junit4) // Compose Testing
+    //androidTestImplementation(libs.androidx.ui.test.junit4) // Compose Testing
     debugImplementation(libs.androidx.ui.tooling) // Compose Debug Tooling
 }
